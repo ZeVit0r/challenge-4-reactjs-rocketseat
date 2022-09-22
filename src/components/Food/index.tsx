@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 import { Container } from './styles';
@@ -20,7 +20,7 @@ interface FoodProps {
 }
 
 export function Food({food, handleEditFood, handleDelete}:FoodProps){
-  const [isAvailable, setIsAvailable] = useState(false)
+  const [isAvailable, setIsAvailable] = useState(food.available)
 
   async function toggleAvailable() {
     await api.put(`/foods/${food.id}`, {
